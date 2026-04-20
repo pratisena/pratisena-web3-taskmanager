@@ -1,7 +1,7 @@
 #![no_std]
 use soroban_sdk::{contract, contractimpl, contracttype, symbol_short, Env, String, Symbol, Vec};
 
-// Struktur data untuk task
+// Data structure for task
 #[contracttype]
 #[derive(Clone, Debug)]
 pub struct Task {
@@ -20,7 +20,7 @@ pub struct TaskContract;
 #[contractimpl]
 impl TaskContract {
 
-    // Ambil semua task
+    // Get all the tasks
     pub fn get_tasks(env: Env) -> Vec<Task> {
         env.storage()
             .instance()
@@ -28,7 +28,7 @@ impl TaskContract {
             .unwrap_or(Vec::new(&env))
     }
 
-    // Tambah task baru
+    // Add new task
     pub fn create_task(env: Env, title: String, description: String) -> String {
         let mut tasks: Vec<Task> = env.storage()
             .instance()
@@ -39,17 +39,17 @@ impl TaskContract {
             id: env.prng().gen::<u64>(),
             title,
             description,
-            completed: false, // default belum selesai
+            completed: false, // default hasn't done yet
         };
 
         tasks.push_back(task);
 
         env.storage().instance().set(&TASK_DATA, &tasks);
 
-        String::from_str(&env, "Task berhasil dibuat")
+        String::from_str(&env, "Task created successfully")
     }
 
-    // Hapus task
+    // Delete task
     pub fn delete_task(env: Env, id: u64) -> String {
         let mut tasks: Vec<Task> = env.storage()
             .instance()
@@ -61,11 +61,11 @@ impl TaskContract {
                 tasks.remove(i);
 
                 env.storage().instance().set(&TASK_DATA, &tasks);
-                return String::from_str(&env, "Task berhasil dihapus");
+                return String::from_str(&env, "Task deleted successfully");
             }
         }
 
-        String::from_str(&env, "Task tidak ditemukan")
+        String::from_str(&env, "Task not found")
     }
 
     // Update status task (done / not done)
@@ -83,11 +83,11 @@ impl TaskContract {
                 tasks.set(i, task);
 
                 env.storage().instance().set(&TASK_DATA, &tasks);
-                return String::from_str(&env, "Status task berhasil diupdate");
+                return String::from_str(&env, "Status task updated successfully");
             }
         }
 
-        String::from_str(&env, "Task tidak ditemukan")
+        String::from_str(&env, "Task not found")
     }
 }
 

@@ -64,7 +64,7 @@ We envision a system where personal productivity tools are secure, transparent, 
 
 ## Contract Details
 
-* Contract Address: CBSDDKRZC3AUMZ5MMINAO5HQU422VMAUERM2SBSFIVM75ERIUFYCMVNZ  
+* Contract Address: CAHFRQ56HKJJEWF3IA6GGLXDDNZRVO5JTW27N3MHO2G7XOYYYUBGW2LF  
 * Network: Stellar Soroban Testnet  
 
 (Screenshot has been removed)
