@@ -1,93 +1,93 @@
 #![no_std]
 use soroban_sdk::{contract, contractimpl, contracttype, symbol_short, Env, String, Symbol, Vec};
 
-// Struktur data untuk inventory
+// Struktur data untuk task
 #[contracttype]
 #[derive(Clone, Debug)]
-pub struct Item {
+pub struct Task {
     id: u64,
-    name: String,
-    quantity: u32,
-    price: u32,
+    title: String,
+    description: String,
+    completed: bool,
 }
 
 // Storage key
-const INVENTORY_DATA: Symbol = symbol_short!("INVENTORY");
+const TASK_DATA: Symbol = symbol_short!("TASK");
 
 #[contract]
-pub struct InventoryContract;
+pub struct TaskContract;
 
 #[contractimpl]
-impl InventoryContract {
+impl TaskContract {
 
-    // Ambil semua item
-    pub fn get_items(env: Env) -> Vec<Item> {
+    // Ambil semua task
+    pub fn get_tasks(env: Env) -> Vec<Task> {
         env.storage()
             .instance()
-            .get(&INVENTORY_DATA)
+            .get(&TASK_DATA)
             .unwrap_or(Vec::new(&env))
     }
 
-    // Tambah item baru
-    pub fn add_item(env: Env, name: String, quantity: u32, price: u32) -> String {
-        let mut items: Vec<Item> = env.storage()
+    // Tambah task baru
+    pub fn create_task(env: Env, title: String, description: String) -> String {
+        let mut tasks: Vec<Task> = env.storage()
             .instance()
-            .get(&INVENTORY_DATA)
+            .get(&TASK_DATA)
             .unwrap_or(Vec::new(&env));
 
-        let item = Item {
+        let task = Task {
             id: env.prng().gen::<u64>(),
-            name,
-            quantity,
-            price,
+            title,
+            description,
+            completed: false, // default belum selesai
         };
 
-        items.push_back(item);
+        tasks.push_back(task);
 
-        env.storage().instance().set(&INVENTORY_DATA, &items);
+        env.storage().instance().set(&TASK_DATA, &tasks);
 
-        String::from_str(&env, "Item berhasil ditambahkan")
+        String::from_str(&env, "Task berhasil dibuat")
     }
 
-    // Hapus item berdasarkan ID
-    pub fn delete_item(env: Env, id: u64) -> String {
-        let mut items: Vec<Item> = env.storage()
+    // Hapus task
+    pub fn delete_task(env: Env, id: u64) -> String {
+        let mut tasks: Vec<Task> = env.storage()
             .instance()
-            .get(&INVENTORY_DATA)
+            .get(&TASK_DATA)
             .unwrap_or(Vec::new(&env));
 
-        for i in 0..items.len() {
-            if items.get(i).unwrap().id == id {
-                items.remove(i);
+        for i in 0..tasks.len() {
+            if tasks.get(i).unwrap().id == id {
+                tasks.remove(i);
 
-                env.storage().instance().set(&INVENTORY_DATA, &items);
-                return String::from_str(&env, "Item berhasil dihapus");
+                env.storage().instance().set(&TASK_DATA, &tasks);
+                return String::from_str(&env, "Task berhasil dihapus");
             }
         }
 
-        String::from_str(&env, "Item tidak ditemukan")
+        String::from_str(&env, "Task tidak ditemukan")
     }
 
-    // Update quantity (misal stok bertambah/berkurang)
-    pub fn update_stock(env: Env, id: u64, new_quantity: u32) -> String {
-        let mut items: Vec<Item> = env.storage()
+    // Update status task (done / not done)
+    pub fn update_status(env: Env, id: u64, status: bool) -> String {
+        let mut tasks: Vec<Task> = env.storage()
             .instance()
-            .get(&INVENTORY_DATA)
+            .get(&TASK_DATA)
             .unwrap_or(Vec::new(&env));
 
-        for i in 0..items.len() {
-            let mut item = items.get(i).unwrap();
+        for i in 0..tasks.len() {
+            let mut task = tasks.get(i).unwrap();
 
-            if item.id == id {
-                item.quantity = new_quantity;
-                items.set(i, item);
+            if task.id == id {
+                task.completed = status;
+                tasks.set(i, task);
 
-                env.storage().instance().set(&INVENTORY_DATA, &items);
-                return String::from_str(&env, "Stock berhasil diupdate");
+                env.storage().instance().set(&TASK_DATA, &tasks);
+                return String::from_str(&env, "Status task berhasil diupdate");
             }
         }
 
-        String::from_str(&env, "Item tidak ditemukan")
+        String::from_str(&env, "Task tidak ditemukan")
     }
 }
 

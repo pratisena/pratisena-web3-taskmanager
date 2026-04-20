@@ -1,102 +1,109 @@
-# Stellar Inventory DApp
+# Stellar Task Manager DApp
 
-**Stellar Inventory DApp** - Blockchain-Based Decentralized Inventory Management System
+**Stellar Task Manager DApp** - Blockchain-Based Decentralized Task Management System
 
 ## Project Description
 
-Stellar Inventory DApp is a decentralized smart contract application developed on the Stellar blockchain using the Soroban SDK. It offers a secure and immutable solution for managing inventory data directly on-chain. The contract guarantees that all stored data remains transparent and can only be modified through predefined smart contract operations, removing the need for centralized database systems.
+Stellar Task Manager DApp is a decentralized smart contract application built on the Stellar blockchain using the Soroban SDK. It provides a secure and immutable platform for managing daily tasks directly on-chain. The contract ensures that all task data is stored transparently and can only be modified through predefined smart contract functions, eliminating dependence on centralized task management systems.
 
-This system enables users to add, view, update, and delete inventory items while taking advantage of the speed and efficiency of the Stellar network. Each item is uniquely identified and stored within the contract’s instance storage, ensuring consistent data persistence and reliability over time.
+The system allows users to create, view, update, and delete tasks efficiently while utilizing the speed and reliability of the Stellar network. Each task is uniquely identified and stored within the contract’s instance storage, ensuring persistent and reliable data management.
 
 ## Project Vision
 
-Our vision is to transform inventory management systems in the digital era by:
+Our vision is to enhance productivity and task organization in a decentralized environment by:
 
-* **Decentralizing Data**: Transitioning inventory systems from centralized databases to distributed blockchain networks
-* **Ensuring Ownership**: Allowing users to fully control and manage their inventory records independently
-* **Guaranteeing Immutability**: Maintaining tamper-resistant records that cannot be altered by unauthorized parties
-* **Enhancing Transparency**: Providing clear and verifiable tracking of all inventory operations
-* **Building Trustless Systems**: Ensuring data accuracy through smart contracts instead of relying on intermediaries
+* **Decentralizing Task Data**: Moving task management from centralized apps to a distributed blockchain
+* **Ensuring Ownership**: Giving users full control over their tasks without relying on third-party services
+* **Guaranteeing Immutability**: Maintaining tamper-proof records of tasks and their updates
+* **Enhancing Transparency**: Allowing all task activities to be verifiable on-chain
+* **Building Trustless Systems**: Ensuring data reliability through smart contract logic
 
-We envision a future where inventory data is secure, transparent, and fully controlled by its owners without dependency on centralized authorities.
+We envision a system where personal productivity tools are secure, transparent, and fully controlled by users.
 
 ## Key Features
 
-### 1. **Simple Item Creation**
+### 1. **Simple Task Creation**
 
-* Add inventory items with a single function call
-* Define item name, quantity, and price
+* Create tasks with a single function call
+* Define task title and description
 * Automatic ID generation for unique identification
 * Persistent storage on the Stellar blockchain
 
 ### 2. **Efficient Data Retrieval**
 
-* Retrieve all stored inventory items in one request
-* Structured output for seamless frontend integration
-* Fast access to complete inventory data
+* Retrieve all tasks in one request
+* Structured output for easy frontend integration
+* Quick access to all stored tasks
 * Real-time synchronization with blockchain state
 
-### 3. **Secure Item Deletion**
+### 3. **Task Deletion**
 
-* Remove specific items using their unique identifiers
+* Remove tasks using unique IDs
 * Permanent deletion from contract storage
 * Efficient data management
-* Instant update of inventory records after deletion
+* Immediate update after deletion
 
-### 4. **Transparency and Security**
+### 4. **Task Status Update**
 
-* Monitor all inventory activities directly on-chain
-* Blockchain-based verification of all operations
-* Immutable records of item creation, updates, and deletion
-* Protection against unauthorized data manipulation
+* Mark tasks as completed or pending
+* Update task status dynamically
+* Helps track progress effectively
 
-### 5. **Stellar Network Integration**
+### 5. **Transparency and Security**
 
-* Utilizes the speed and low transaction cost of Stellar
-* Built with the Soroban Smart Contract SDK
-* Designed for scalability as inventory grows
-* Compatible with other Stellar-based applications
+* All task operations recorded on blockchain
+* Verifiable and immutable task history
+* Protection against unauthorized modifications
+
+### 6. **Stellar Network Integration**
+
+* Fast and low-cost transactions
+* Built using Soroban Smart Contract SDK
+* Scalable for growing task data
+* Compatible with Stellar ecosystem services
 
 ## Contract Details
 
-* Contract Address: *(To be filled after deployment)*
-  (Screenshot has been removed)
+* Contract Address: CBSDDKRZC3AUMZ5MMINAO5HQU422VMAUERM2SBSFIVM75ERIUFYCMVNZ  
+* Network: Stellar Soroban Testnet  
+
+(Screenshot has been removed)
 
 ## Future Scope
 
 ### Short-Term Enhancements
 
-1. **Item Categorization**: Add tags or categories to organize inventory more effectively
-2. **Search Functionality**: Implement search and filtering for large datasets
-3. **Price Update Feature**: Enable dynamic updates for item pricing
-4. **Input Validation**: Improve validation for safer and more reliable data handling
+1. **Task Categorization**: Add tags or categories for better organization
+2. **Priority Levels**: Assign priority (low, medium, high) to tasks
+3. **Deadline Feature**: Add due dates for task management
+4. **Search Functionality**: Filter tasks by status or keyword
 
 ### Medium-Term Development
 
-5. **Multi-User Inventory**: Support shared inventory management across multiple addresses
+5. **Multi-User Collaboration**: Shared task management across multiple users
 
-   * Role-based access control
-   * Permission management for editing and viewing
-   * Activity tracking and history logs
-6. **Notification System**: Off-chain alerts for stock changes or low inventory
-7. **Transaction History**: Record stock-in and stock-out activities
-8. **Inter-Contract Integration**: Enable interaction with supply chain or payment smart contracts
+   * Role-based permissions
+   * Task assignment system
+   * Activity tracking
+6. **Notification System**: Alerts for deadlines or task updates
+7. **Task History Tracking**: Record all task changes
+8. **Integration with Other Contracts**: Connect with scheduling or calendar systems
 
 ### Long-Term Vision
 
-9. **Supply Chain Integration**: Expand inventory tracking across multiple stakeholders
-10. **Decentralized Frontend Hosting**: Deploy UI using IPFS or similar technologies
-11. **AI-Based Forecasting**: Predict inventory demand using AI models
-12. **Privacy Enhancements**: Implement advanced privacy techniques such as zero-knowledge proofs
-13. **DAO Governance**: Community-driven development and decision-making
-14. **Identity Management**: Integration with decentralized identity (DID) systems
+9. **Cross-Platform Integration**: Sync with mobile and web applications
+10. **Decentralized Frontend Hosting**: Deploy UI using IPFS
+11. **AI Task Suggestions**: Smart recommendations for productivity
+12. **Privacy Enhancements**: Secure task data using advanced cryptographic methods
+13. **DAO Governance**: Community-driven improvements
+14. **Decentralized Identity (DID)**: Secure user identity integration
 
 ### Enterprise Features
 
-15. **Warehouse Management**: Multi-location inventory tracking system
-16. **Audit Logs**: Immutable logs for compliance and auditing purposes
-17. **Automated Reporting**: Generate reports based on inventory activity
-18. **Multi-Language Support**: Improve accessibility for global users
+15. **Team Task Management**: Manage tasks across organizations
+16. **Audit Logs**: Immutable logs for task tracking
+17. **Automated Reporting**: Generate productivity reports
+18. **Multi-Language Support**: Support global users
 
 ---
 
@@ -108,13 +115,13 @@ We envision a future where inventory data is secure, transparent, and fully cont
 
 ## Getting Started
 
-Deploy the smart contract to the Stellar Soroban network and interact with it using the following core functions:
+Deploy the smart contract to the Stellar Soroban network and interact with it using the main functions:
 
-* `add_item()` - Add a new item with name, quantity, and price
-* `get_items()` - Retrieve all stored inventory data
-* `delete_item()` - Remove an item by its ID
-* `update_stock()` - Update the quantity of a specific item
+* `create_task()` - Create a new task with title and description
+* `get_tasks()` - Retrieve all stored tasks
+* `delete_task()` - Remove a task by its ID
+* `update_status()` - Update task completion status
 
 ---
 
-**Stellar Inventory DApp** - Securing Your Inventory on the Blockchain
+**Stellar Task Manager DApp** — Decentralizing Productivity on the Blockchain
